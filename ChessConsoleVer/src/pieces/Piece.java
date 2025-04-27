@@ -12,7 +12,6 @@ public abstract class Piece {
     protected String algPosition;
     // The position of the piece using coordinate notation (1, 1), (2, 4) ect.
     protected Point cordPosition;
-    protected Type type;
 
     // Constructor for Pieces
     public Piece (Color color, String algPosition) {
