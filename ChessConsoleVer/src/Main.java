@@ -1,9 +1,15 @@
+import brains.Board;
+import brains.GameController;
 import brains.Move;
 
 public class Main {
     public static void main(String[] args) {
 
-        Move testMove = new Move("E2", "E4");
-        System.out.println(testMove.toString());
+        GameController game = new GameController();
+        game.getBoard().printBoard();
+        Move testMove = new Move("E4", "E5");
+        game.getBoard().movePiece(testMove);
+        game.getBoard().printBoard();
+
     }
 }
