@@ -1,14 +1,12 @@
+package brains;
+import java.awt.*;
+
 /*
 This class is used for encapsulating the move orders for a piece.
 Once a move has been created, for example E2 to E4, the starting and target destination
 are not able to be changed ensuring that the attempted move is not altered.
 If the player wants to try another move, a new Move object will be created.
  */
-
-package brains;
-
-import java.awt.*;
-
 public class Move {
 
     private final String algStartingPos; // Starting position of piece before move is made (Algebraic notation)

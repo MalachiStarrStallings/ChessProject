@@ -1,7 +1,5 @@
 package brains;
-
 import pieces.*;
-
 import java.awt.*;
 
 public class Board {
@@ -22,9 +20,13 @@ public class Board {
         Point startLoc = move.getCordStarPos();
         // If the start location of the move is empty, the piece couldn't be moved
         if (chessBoard[startLoc.y][startLoc.x] == null) {
-            throw new IllegalArgumentException("Illegal move, must select a cell with a piece");
+            throw new IllegalArgumentException("Illegal move! Must select a cell with a piece");
         }
         Point endLoc = move.getCordTargPos();
+        // If the start location and destination location are the same, the move is invalid
+        if ((startLoc.x == endLoc.x) && (startLoc.y == endLoc.y)) {
+            throw new IllegalArgumentException("Illegal move! Start cell and end cell must be different");
+        }
         Piece chosenPiece = chessBoard[startLoc.y][startLoc.x];
         chessBoard[startLoc.y][startLoc.x] = null;
         chessBoard[endLoc.y][endLoc.x] = chosenPiece;
@@ -61,6 +63,6 @@ public class Board {
                 }
             }
         }
-        System.out.println(boardStr.toString());
+        System.out.println(boardStr);
     }
 }

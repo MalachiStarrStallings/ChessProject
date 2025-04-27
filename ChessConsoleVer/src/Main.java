@@ -7,7 +7,7 @@ public class Main {
 
         GameController game = new GameController();
         game.getBoard().printBoard();
-        Move testMove = new Move("E4", "E5");
+        Move testMove = new Move("E2", "E2");
         game.getBoard().movePiece(testMove);
         game.getBoard().printBoard();
 
