@@ -16,6 +16,10 @@ public class Board {
         chessBoard[location.y][location.x] = piece;
     }
 
+    public Piece getPieceAt(int i, int j) {
+        return chessBoard[j][i];
+    }
+
     public void movePiece(Move move) {
         Point startLoc = move.getCordStarPos();
         // If the start location of the move is empty, the piece couldn't be moved
