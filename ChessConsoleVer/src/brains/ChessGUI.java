@@ -1,6 +1,7 @@
 package brains;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -19,6 +20,7 @@ public class ChessGUI extends Application {
     public void start(Stage primaryStage) throws Exception {
         game = new GameController();
         Board board = game.getBoard();
+        PieceTextureLoader textureLoader = new PieceTextureLoader();
 
         GridPane root = new GridPane();
 
@@ -37,8 +39,8 @@ public class ChessGUI extends Application {
 
                 Piece piece = board.getPieceAt(i, j);
                 if (piece != null) {
-                    Text pieceText = new Text(getPieceSymbol(piece));
-                    tile.getChildren().add(pieceText);
+                    ImageView pieceTexture = getPieceTexture(piece, textureLoader);
+                    tile.getChildren().add(pieceTexture);
                 }
 
                 root.add(tile, i, j);
@@ -50,25 +52,7 @@ public class ChessGUI extends Application {
         primaryStage.show();
     }
 
-    private String getPieceSymbol (Piece piece) {
-        if (piece instanceof Pawn) {
-            return "P";
-        }
-        else if (piece instanceof Rook) {
-            return "R";
-        }
-        else if (piece instanceof Bishop) {
-            return "B";
-        }
-        else if (piece instanceof Knight) {
-            return "N";
-        }
-        else if (piece instanceof Queen) {
-            return "Q";
-        }
-        else if (piece instanceof King) {
-            return "K";
-        }
-        else return "?";
+    private ImageView getPieceTexture (Piece piece, PieceTextureLoader textureLoader) {
+        return textureLoader.getPieceImage(piece);
     }
 }
