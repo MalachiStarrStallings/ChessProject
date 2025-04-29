@@ -12,6 +12,8 @@ public abstract class Piece {
     protected String algPosition;
     // The position of the piece using coordinate notation (1, 1), (2, 4) ect.
     protected Point cordPosition;
+    // Boolean to keep track if the piece has moved (for en passant, castling, ect)
+    protected boolean hasMoved = false;
 
     // Constructor for Pieces
     public Piece (Color color, String algPosition) {
@@ -23,11 +25,13 @@ public abstract class Piece {
     public Color getColor() { return color; } // We do not need a setter for the color since it never changes
     public String getAlgPosition() { return algPosition; }
     public Point getCordPosition() { return cordPosition; }
+    public boolean getHasMoved() { return hasMoved; }
 
     public void setAlgPosition(String algPosition) {
         this.algPosition = algPosition;
     }
     public void setCordPosition(Point cordPosition) { this.cordPosition = cordPosition; }
+    public void setHasMoved(boolean moved) { this.hasMoved = moved; }
 
     // To find the list of legal moves a given piece can make the piece needs to know the state of the board
     public abstract List<Move> getLegalMoves(Board board);
