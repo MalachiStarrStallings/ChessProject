@@ -32,7 +32,7 @@ public class Move {
     This method will translate an algebraic position into a coordinate one
     E.g: A8 -> (0,0), E2 -> (4, 6)
      */
-    private Point decodePosition (String position) {
+    public static Point decodePosition (String position) {
         char file = position.charAt(0);
         int rank = Character.getNumericValue(position.charAt(1));
         int y = 8 - rank;
